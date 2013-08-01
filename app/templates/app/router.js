@@ -24,7 +24,7 @@ define([
 		index: function() {
 			// Create main layout (main.jade)
 			app.useLayout('main').setViews({
-				".books": new Book.Views.List({ books: this.books })
+				".books": new Book.Views.List({ collection: this.books })
 			}).render();
 
 			this.books.fetch({ reset: true });
