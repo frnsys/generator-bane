@@ -20,7 +20,7 @@ BaneGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // have Yeoman greet the user.
-  console.log(this.yeoman);
+  console.log(bane);
 
   var prompts = [{
     type: 'input',
@@ -67,4 +67,12 @@ BaneGenerator.prototype.stylesheets = function stylesheets() {
         cb();
     });
 };
+
+
+var bane =
+'\n\t _____ _____ _____ _____ '.blue+
+'\n\t| __  |  _  |   | |   __|'.blue+
+'\n\t| __ -|     | | | |   __|'.blue+
+'\n\t|_____|__|__|_|___|_____|'.blue+
+'\n\n\t   [A Yeoman generator]\n\n';
 
