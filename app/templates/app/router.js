@@ -1,14 +1,14 @@
 define([
 			 // Application.
-			 'app',
+			 'app'
 
 			 // Modules.
-			 'modules/book'
+			 //'modules/book'
 ], function(app, Book) {
 	var Router = Backbone.Router.extend({
 		initialize: function() {
 			var collections = {
-				books: new Book.Collection()
+				//books: new Book.Collection()
 			}
 
 			// Attach collections to the router
@@ -17,38 +17,36 @@ define([
 		},
 
 		routes: {
-			'': 'index',
-			'book/:slug': 'book'
+			'': 'index'
+			//'book/:slug': 'book'
 		},
 
 		index: function() {
 			// Create main layout (main.jade)
 			app.useLayout('main').setViews({
-				'.hello': new Book.Views.List({ collection: this.books })
+				//'.hello': new Book.Views.List({ collection: this.books })
 			}).render();
 
-			this.books.fetch({ reset: true });
+			//this.books.fetch({ reset: true });
 		},
 
 		book: function(slug) {
-			// There is probably a better/proper
-			// way to do this.
-			var books = this.books;
-			books.fetch({
-				success: function() {
-					var book = books.get(slug);
-					app.useLayout('main').setViews({
-						'.hello': new Book.Views.Single({ model: book })
-					}).render();
-				}
-			});
+			//var books = this.books;
+			//books.fetch({
+				//success: function() {
+					//var book = books.get(slug);
+					//app.useLayout('main').setViews({
+						//'.hello': new Book.Views.Single({ model: book })
+					//}).render();
+				//}
+			//});
 		},
 
 		reset: function() {
 			// Reset collections to initial state
-			if (this.books.length) {
-				this.books.reset();
-			}
+			//if (this.books.length) {
+				//this.books.reset();
+			//}
 		},
 
 		// Shortcut for building a url
