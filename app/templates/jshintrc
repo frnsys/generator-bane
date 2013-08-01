@@ -18,7 +18,12 @@
     "devel": true,
     "globals": {
         "jQuery": true,
+        "$": true,
+        "Backbone": true,
+        "_": true,
+        "JST": true,
         "requirejs": true,
-        "require": true
+        "require": true,
+        "define": true
     }
 }
