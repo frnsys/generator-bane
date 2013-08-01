@@ -3,7 +3,7 @@
     "eqeqeq": true,
     "indent": 4,
     "latedef": true,
-    "quote": "single",
+    "quotmark": "single",
     "undef": true,
     "unused": true,
     "strict": true,
@@ -15,8 +15,10 @@
     "immed": true,
     "eqnull": true,
     "browser": true,
+    "devel": true,
     "globals": {
-        "jQuery": true
-    },
-    "ignores": ["app/vendor/**/*.js"]
+        "jQuery": true,
+        "requirejs": true,
+        "require": true
+    }
 }
