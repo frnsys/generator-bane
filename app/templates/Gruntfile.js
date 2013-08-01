@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             bower: {
                 files: ['app/vendor/bower/**/*'],
                 tasks: ['bower']
-            }
+            },
             // Setup a LiveReload server.
             options: { livereload: true },
 			files: [
