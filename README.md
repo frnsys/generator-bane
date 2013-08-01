@@ -17,6 +17,10 @@ This is a [Yeoman](http://yeoman.io/) generator for Bane.
 - Install the generator: `npm install -g generator-bane`
 - Run: `yo bane`
 
+To create a new module, run:
+    `yo bane:module <ModuleName>`
+You will have to manually update `app/router.js`.
+
 ## About
 This is basically a more "opinionated" version of Backbone Boilerplate.
 
