@@ -6,3 +6,4 @@ fontcustom
 templates.js
 index.css
 app/scripts/vendor/**/*
+*.swp
