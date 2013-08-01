@@ -1,0 +1,12 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "latest",
+    "jquery": "latest",
+    "jade": "latest",
+    "lodash": "latest",
+    "layoutmanager": "latest",
+    "underscore.string": "latest"
+  }
+}
