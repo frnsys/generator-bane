@@ -143,9 +143,14 @@ module.exports = function(grunt) {
 
         // Minify CSS.
         cssmin: {
-            report: 'gzip',
+            options: {
+                report: 'gzip'
+            },
             files: {
-                'release/app/index.css': ['dev/app/index.css']
+                expand: true,
+                cwd: '.',
+                src: ['app/styles/index.css'],
+                dest: 'release/'
             }
         },
 
@@ -184,6 +189,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-bower-requirejs');
     grunt.loadNpmTasks('grunt-requirejs');
 	grunt.loadNpmTasks('grunt-text-replace');
