@@ -15,14 +15,10 @@ module.exports = function(grunt) {
 
 		// Watch
 		watch: {
-            bower: {
-                files: ['app/vendor/bower/**/*'],
-                tasks: ['bower']
-            },
             // Setup a LiveReload server.
             options: { livereload: true },
 			files: [
-				'app/vendor/libs/**/*',
+				'app/vendor/lib/**/*',
 				'app/*.js',
 				'app/styles/**/*.scss',
 				'app/styles/**/*.sass',
@@ -34,7 +30,7 @@ module.exports = function(grunt) {
                 // Ignore:
                 '!app/styles/exts/_icons.scss'
 			],
-			tasks: ['sass', 'jade', 'fontcustom', 'jshint']
+			tasks: ['sass', 'jade', 'fontcustom']
 		},
 
 		// Compile SASS/SCSS
@@ -76,6 +72,7 @@ module.exports = function(grunt) {
             },
             files: [
                 'app/**/*.js',
+                '!app/templates/templates.js',
                 '!app/vendor/**/*.js'
             ]
         },
@@ -135,7 +132,7 @@ module.exports = function(grunt) {
                     almond: true,                       // Use Almond instead of RequireJS.
                     mainConfigFile: 'app/config.js',
                     baseUrl: 'app',
-                    out: 'release/require.js',
+                    out: 'release/scripts/require.js',
                     name: 'config'
                 }
             }
@@ -163,7 +160,7 @@ module.exports = function(grunt) {
                  },
                  files: [{
                      expand: true,
-                     cwd: 'dev/assets/images',
+                     cwd: 'assets/images',
                      src: '{,*/}*.{png,jpg,jpeg}',
                      dest: 'release/assets/images'
                  }]
@@ -174,9 +171,9 @@ module.exports = function(grunt) {
 
 	// Define grunt tasks
 	// =======================================
-	grunt.registerTask('default', ['connect', 'watch']);
+	grunt.registerTask('default', ['sass', 'jade', 'connect', 'watch']);
 	grunt.registerTask('fontcustom', ['shell:fontcustom', 'copy:fontcustom', 'replace:fontcustom']);
-    grunt.registerTask('build', ['clean', 'cssmin', 'imagemin', 'requirejs']);
+    grunt.registerTask('build', ['jshint', 'csslint', 'clean', 'cssmin', 'imagemin', 'requirejs']);
 
 	// Load grunt packages
 	// =======================================
