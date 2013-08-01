@@ -44,7 +44,7 @@ as specified by the Bower Jade package's `component.json` (which is
         deprecated) is `vendor/bower/jade/lib/runtime`. However, to use
 it as an AMD module, you must instead specify the path as:
 ```js
-    // config.js
+    // app/config.js
     paths: {
         // ...
         jade: 'vendor/bower/jade/runtime',
@@ -54,6 +54,8 @@ it as an AMD module, you must instead specify the path as:
 
 ## License
 Bane is by Francis Tseng ([@frnsys](https://twitter.com/frnsys))
+
 Backbone Boilerplate is Copyright (c) 2013 Tim Branyen
 ([@tbranyen](https://twitter.com/tbranyen))  
+
 Licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License)
