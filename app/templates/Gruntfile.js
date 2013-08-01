@@ -132,7 +132,7 @@ module.exports = function(grunt) {
                     almond: true,                       // Use Almond instead of RequireJS.
                     mainConfigFile: 'app/config.js',
                     baseUrl: 'app',
-                    out: 'release/scripts/require.js',
+                    out: 'release/scripts/release.js',
                     name: 'config'
                 }
             }
