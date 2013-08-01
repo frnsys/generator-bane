@@ -72,26 +72,7 @@ module.exports = function(grunt) {
         // JS linting with JSHint.
         jshint: {
             options: {
-                curly: true,            // Require curly braces.
-                eqeqeq: true,           // Require === and !==.
-                indent: 4,              // Mandatory 4-space indent.
-                latedef: true,          // Vars must be defined before usage.
-                quote: 'single',        // Use only single quotes.
-                undef: true,            // Warn about undeclared vars.
-                unused: true,           // Warn about unused vars.
-                strict: true,           // ECMAScript 5 strict mode.
-                camelcase: true,        // Assert camelcase naming convention.
-                bitwise: true,          // E.g. favor && over &.
-                newcap: true,           // Require capitalization of constructors.
-                smarttabs: true,        // Allow mixed tabs and spaces for alignment.
-                trailing: true,         // No trailing whitespaces.
-                immed: true,            // Require wrapping immediate funcs in parens.
-                eqnull: true,           // Allow '== null'.
-                browser: true,          // Environment is a browser.
-                globals: {
-                    jQuery: true
-                },
-                ignores: ['app/vendor/**/*.js']
+                jshintrc: '.jshintrc'
             },
             files: ['app/**/*.js']
         },

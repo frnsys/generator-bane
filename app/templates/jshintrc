@@ -1,0 +1,22 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "indent": 4,
+    "latedef": true,
+    "quote": 'single',
+    "undef": true,
+    "unused": true,
+    "strict": true,
+    "camelcase": true,
+    "bitwise": true,
+    "newcap": true,
+    "smarttabs": true,
+    "trailing": true,
+    "immed": true,
+    "eqnull": true,
+    "browser": true,
+    "globals": {
+        "jQuery": true
+    },
+    "ignores": ["app/vendor/**/*.js"]
+}
