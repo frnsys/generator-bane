@@ -45,6 +45,7 @@ BaneGenerator.prototype.app = function app() {
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
   this.copy('index.html', 'index.html');
+  this.copy('favicon.ico', 'favicon.ico');
 };
 
 BaneGenerator.prototype.projectfiles = function projectfiles() {
