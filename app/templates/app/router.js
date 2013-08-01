@@ -4,7 +4,7 @@ define([
 
 			 // Modules.
 			 //'modules/book'
-], function(app, Book) {
+], function(app /*, Book */) {
 	var Router = Backbone.Router.extend({
 		initialize: function() {
 			var collections = {
