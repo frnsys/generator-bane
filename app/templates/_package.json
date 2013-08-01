@@ -17,6 +17,7 @@
     "grunt-contrib-jshint": "~0.6.2",
     "grunt-contrib-cssmin": "~0.6.1",
     "bower": "~0.10.0",
-    "grunt-bower-requirejs": "~0.6.0"
+    "grunt-bower-requirejs": "~0.6.0",
+    "grunt-contrib-csslint": "~0.1.2"
   }
 }

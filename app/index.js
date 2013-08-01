@@ -50,6 +50,7 @@ BaneGenerator.prototype.app = function app() {
 BaneGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('gitignore', '.gitignore');
   this.copy('bowerrc', '.bowerrc');
+  this.copy('csslintrc', '.csslintrc');
   this.copy('Gruntfile.js', 'Gruntfile.js');
 };
 

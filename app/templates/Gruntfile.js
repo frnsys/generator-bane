@@ -91,9 +91,18 @@ module.exports = function(grunt) {
                 globals: {
                     jQuery: true
                 },
-                ignores: ['app/scripts/vendor/**/*.js']
+                ignores: ['app/vendor/**/*.js']
             },
-            files: ['app/scripts/**/*.js']
+            files: ['app/**/*.js']
+        },
+
+        csslint: {
+            main: {
+                options: {
+                    csslintrc: '.csslintrc'
+                },
+                src: ['app/styles/index.css']
+            }
         },
 
 		shell: {
