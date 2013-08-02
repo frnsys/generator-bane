@@ -1,5 +1,5 @@
 define([
-			 "app"
+			 'app'
 ],
 function(app) {
 <% lname = _.slugify(name); uname = _.capitalize(lname) %>
@@ -8,20 +8,20 @@ function(app) {
 	var <%= uname %> = app.module();
 
 	<%= uname %>.Model = Backbone.Model.extend({
-		idAttribute: "slug",
+		idAttribute: 'slug',
 
 		defaults: {
-			author: "",
-			title: "",
+			author: '',
+			title: '',
 		},
 
 		initialize: function() {
 			this.slugify();
-			this.on("change:title", this.slugify);
+			this.on('change:title', this.slugify);
 		},
 
 		slugify: function() {
-			this.set("slug", _.slugify( this.get("title") ))
+			this.set('slug', _.slugify( this.get('title') ))
 		}
 	});
 
@@ -30,7 +30,7 @@ function(app) {
 
 		// Where to fetch the data from
 		url: function() {
-			return "/data/<%= lname %>/collection.json";
+			return '/data/<%= lname %>/collection.json';
 		},
 
 		// How to handle the fetched data
@@ -45,8 +45,8 @@ function(app) {
 <% if (includeViews) { %>
 
 	<%= uname %>.Views.Item = Backbone.View.extend({
-		template:"<%= lname %>/item",
-		tagName:"li",
+		template:'<%= lname %>/item',
+		tagName:'li',
 
 		// The data that gets passed to the view
 		serialize: function() {
@@ -57,26 +57,17 @@ function(app) {
 
 		// Bind some events
 		events: {
-			click: "showSingle"
+			click: 'showSingle'
 		},
 
 		showSingle: function(ev) {
-			app.router.go("<%= lname %>", this.model.get("slug"));
-		},
-
-		// Do stuff before the view is rendered
-		beforeRender: function() {
-			// If this item has been activated...
-			if ( app.active === this.model ) {
-				this.$el.siblings().removeClass("active");
-				this.$el.addClass("active");
-			}
+			app.router.go('<%= lname %>', this.model.get('slug'));
 		}
 	});
 
 	<%= uname %>.Views.List = Backbone.View.extend({
-		template: "<%= lname %>/list",
-		className: "<%= lname %>--list",
+		template: '<%= lname %>/list',
+		className: '<%= lname %>--list',
 
 		// The data that gets passed to the view
 		serialize: function() {
@@ -86,35 +77,32 @@ function(app) {
 			};
 		},
 
-		// Do stuff before the view is rendered
-		beforeRender: function() {
-			var view = this;
-
-			// For each book in collection
-			this.options.collection.each(function(model) {
-
-				// Insert a Book item view with book to the ul
-				view.insertView("ul", new <%= uname %>.Views.Item({
-					model: model
-				}));
-
-			});
-		},
-
 		initialize: function() {
 			// Listen to some events
 			this.listenTo(this.options.collection, {
-				"reset": function() {
+				'reset': function() {
 					this.render();
 				}
 			});
+
+            this.on('beforeRender', function(view) {
+                var view = this;
+
+                // For each <%= lname %> in collection
+                this.options.collection.each(function(model) {
+                    // Insert a <%= uname %> item view with <%= lname %> to the ul
+                    view.insertView("ul", new <%= uname %>.Views.Item({
+                        model: model
+                    }));
+                });
+            });
 		}
 	});
 
 	<%= uname %>.Views.Single = Backbone.View.extend({
-		template: "<%= lname %>/single",
-		className: "<%= lname %>--single",
-		tagName:"section",
+		template: '<%= lname %>/single',
+		className: '<%= lname %>--single',
+		tagName:'section',
 
 		serialize: function() {
 			return {
