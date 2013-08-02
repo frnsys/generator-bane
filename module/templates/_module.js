@@ -1,11 +1,8 @@
-<% lname = _.slugify(name) %>
-<% uname = _.capitalize(lname) %>
-
 define([
 			 "app"
 ],
 function(app) {
-
+<% lname = _.slugify(name); uname = _.capitalize(lname) %>
 	// Create a module based off
 	// the app template (in app.js)
 	var <%= uname %> = app.module();
