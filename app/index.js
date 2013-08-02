@@ -56,6 +56,21 @@ BaneGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('Gruntfile.js', 'Gruntfile.js');
 };
 
+BaneGenerator.prototype.h5bp = function h5bp() {
+  var cb = this.async();
+
+  this.remote('h5bp', 'html5-boilerplate', function(err, remote) {
+      if (err) {
+          return cb(err);
+      }
+      remote.copy('.htaccess', '.htaccess');
+      remote.copy('crossdomain.xml', 'crossdomain.xml');
+      remote.copy('humans.txt', 'humans.txt');
+      remote.copy('robots.txt', 'robots.txt');
+      cb();
+  });
+};
+
 BaneGenerator.prototype.stylesheets = function stylesheets() {
     var cb = this.async();
 
