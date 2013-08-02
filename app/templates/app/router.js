@@ -24,6 +24,8 @@ define([
 		},
 
 		index: function() {
+            this.reset();
+
 			// Create main layout (main.jade)
 			app.useLayout('main').setViews({
 				//'.hello': new Book.Views.List({ collection: this.books })
