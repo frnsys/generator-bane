@@ -42,7 +42,7 @@ function(app) {
 		}
 	});
 
-<% if (this.includeViews) { %>
+<% if (includeViews) { %>
 
 	<%= uname %>.Views.Item = Backbone.View.extend({
 		template:"<%= lname %>/item",
