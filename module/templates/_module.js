@@ -2,6 +2,7 @@ define([
 			 'app'
 ],
 function(app) {
+    'use strict';
 <% lname = _.slugify(name); uname = _.capitalize(lname) %>
 	// Create a module based off
 	// the app template (in app.js)
@@ -21,7 +22,7 @@ function(app) {
 		},
 
 		slugify: function() {
-			this.set('slug', _.slugify( this.get('title') ))
+			this.set('slug', _.slugify( this.get('title') ));
 		}
 	});
 
@@ -39,6 +40,9 @@ function(app) {
 		},
 
 		initialize: function(models, options) {
+            // Remove this method you don't need it.
+            console.log(models);
+            console.log(options);
 		}
 	});
 
@@ -60,7 +64,7 @@ function(app) {
 			click: 'showSingle'
 		},
 
-		showSingle: function(ev) {
+		showSingle: function() {
 			app.router.go('<%= lname %>', this.model.get('slug'));
 		}
 	});
@@ -86,8 +90,6 @@ function(app) {
 			});
 
             this.on('beforeRender', function(view) {
-                var view = this;
-
                 // For each <%= lname %> in collection
                 this.options.collection.each(function(model) {
                     // Insert a <%= uname %> item view with <%= lname %> to the ul
