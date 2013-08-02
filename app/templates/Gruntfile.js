@@ -101,7 +101,23 @@ module.exports = function(grunt) {
 					{src: ['source/icons/fontcustom/*.svg'],  dest: 'app/styles/fonts/icons.svg'},
 					{src: ['source/icons/fontcustom/*.ttf'],  dest: 'app/styles/fonts/icons.ttf'}
 				]
-			}
+			},
+
+            // Copy over files for release.
+            release: {
+                files: [
+                    {
+                        src: [
+                            '.htaccess',
+                            'favicon.ico',
+                            'crossdomain.xml',
+                            'humans.txt',
+                            'robots.txt'
+                        ],
+                        dest: 'release/'
+                    }
+                ]
+            }
 		},
 		replace: {
             // Replace Font Custom CSS.
@@ -115,7 +131,20 @@ module.exports = function(grunt) {
 					from: 'fontcustom',
 					to: 'icons'
 				}]
-			}
+			},
+
+            // Replace for release.
+            release: {
+                src: ['index.html'],
+                dest: ['release/index.html'],
+                replacements: [{
+                    from: '/app/vendor/bower/requirejs/require.js',
+                    to: 'scripts/release.js'
+                }, {
+                    from: ' data-main="/app/config"',
+                    to: ''
+                }]
+            }
 		},
 
 
@@ -173,7 +202,7 @@ module.exports = function(grunt) {
 	// =======================================
 	grunt.registerTask('default', ['sass', 'jade', 'connect', 'watch']);
 	grunt.registerTask('fontcustom', ['shell:fontcustom', 'copy:fontcustom', 'replace:fontcustom']);
-    grunt.registerTask('build', ['jshint', 'csslint', 'clean', 'cssmin', 'imagemin', 'requirejs']);
+    grunt.registerTask('release', ['jshint', 'csslint', 'clean', 'replace:release', 'copy:release', 'cssmin', 'imagemin', 'requirejs']);
 
 	// Load grunt packages
 	// =======================================
