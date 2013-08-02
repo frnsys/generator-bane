@@ -5,11 +5,13 @@ define([
 			 // Modules.
 			 //'modules/book'
 ], function(app /*, Book */) {
+    'use strict';
+
 	var Router = Backbone.Router.extend({
 		initialize: function() {
 			var collections = {
 				//books: new Book.Collection()
-			}
+			};
 
 			// Attach collections to the router
 			// i.e. this.books
@@ -31,6 +33,7 @@ define([
 		},
 
 		book: function(slug) {
+            console.log(slug);
 			//var books = this.books;
 			//books.fetch({
 				//success: function() {

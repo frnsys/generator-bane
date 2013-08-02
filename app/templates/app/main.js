@@ -7,6 +7,8 @@ require([
 
 // Get the whole application started.
 ], function(app, Router) {
+    'use strict';
+
 	// Create our router and
 	// attach it to the app.
 	app.router = new Router();

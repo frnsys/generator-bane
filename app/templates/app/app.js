@@ -7,19 +7,20 @@ define([
   // Include additional libraries installed with Bower or placed in the
   // `vendor/libs` directory, here.
 ], function(LayoutManager, _s) {
+    'use strict';
 
 	// Load in underscore.string
-	_.mixin(_s.exports())
+	_.mixin(_s.exports());
 
-  // Provide a global location to place configuration settings and module
-  // creation.
+    // Provide a global location to place configuration settings and module
+    // creation.
 	var app = {
-  	// The root path to run the application.
+    // The root path to run the application.
 		root: '/'
 	};
 
   // Localize or create a new JavaScript Template object.
-	JST = window.JST = window.JST || {}
+	JST = window.JST = window.JST || {};
 
   // Configure LayoutManager with Backbone Boilerplate defaults.
 	LayoutManager.configure({
