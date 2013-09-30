@@ -4,7 +4,7 @@ Boilerplate](https://github.com/tbranyen/backbone-boilerplate). All
 credit for Backbone Boilerplate goes to him and the
 [contributors](https://github.com/tbranyen/backbone-boilerplate/contributors) to that project.
 
-![Bane](http://supermedes.com/assets/bane.jpg)
+![Bane](http://frnsys.com/assets/bane.jpg)
 
 Bane
 ====
