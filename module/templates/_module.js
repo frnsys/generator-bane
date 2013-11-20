@@ -93,7 +93,7 @@ function(app) {
                 // For each <%= lname %> in collection
                 this.options.collection.each(function(model) {
                     // Insert a <%= uname %> item view with <%= lname %> to the ul
-                    view.insertView("ul", new <%= uname %>.Views.Item({
+                    view.insertView('ul', new <%= uname %>.Views.Item({
                         model: model
                     }));
                 });

@@ -7,7 +7,7 @@
     "undef": true,
     "unused": true,
     "strict": true,
-    "camelcase": true,
+    "camelcase": false,
     "bitwise": true,
     "newcap": true,
     "smarttabs": true,
@@ -16,6 +16,7 @@
     "eqnull": true,
     "browser": true,
     "devel": true,
+    "loopfunc": true,
     "globals": {
         "jQuery": true,
         "$": true,

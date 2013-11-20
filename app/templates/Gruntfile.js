@@ -112,7 +112,8 @@ module.exports = function(grunt) {
                             'favicon.ico',
                             'crossdomain.xml',
                             'humans.txt',
-                            'robots.txt'
+                            'robots.txt',
+                            'app/styles/fonts/*'
                         ],
                         dest: 'release/'
                     }
