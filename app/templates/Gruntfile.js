@@ -89,17 +89,17 @@ module.exports = function(grunt) {
         shell: {
             // Compile Font Custom font.
             fontcustom: {
-                command: 'fontcustom compile source/icons'
+                command: 'fontcustom compile source/icons -o source/fontcustom'
             }
         },
         copy: {
             // Copy Font Custom fonts to proper place.
             fontcustom: {
                 files: [
-                    {src: ['source/icons/fontcustom/*.woff'], dest: 'app/styles/fonts/icons.woff'},
-                    {src: ['source/icons/fontcustom/*.eot'],  dest: 'app/styles/fonts/icons.eot'},
-                    {src: ['source/icons/fontcustom/*.svg'],  dest: 'app/styles/fonts/icons.svg'},
-                    {src: ['source/icons/fontcustom/*.ttf'],  dest: 'app/styles/fonts/icons.ttf'}
+                    {src: ['source/fontcustom/*.woff'], dest: 'app/styles/fonts/icons.woff'},
+                    {src: ['source/fontcustom/*.eot'],  dest: 'app/styles/fonts/icons.eot'},
+                    {src: ['source/fontcustom/*.svg'],  dest: 'app/styles/fonts/icons.svg'},
+                    {src: ['source/fontcustom/*.ttf'],  dest: 'app/styles/fonts/icons.ttf'}
                 ]
             },
 
@@ -123,7 +123,7 @@ module.exports = function(grunt) {
         replace: {
             // Replace Font Custom CSS.
             fontcustom: {
-                src: ['source/icons/fontcustom/fontcustom.css'],
+                src: ['source/fontcustom/fontcustom.css'],
                 dest: ['app/styles/exts/_icons.scss'],
                 replacements: [{
                     from: /fontcustom_[^.]+/g,
@@ -153,7 +153,10 @@ module.exports = function(grunt) {
 
         // Clean out the release directory
         // to remove old files.
-        clean: ['release/'],
+        clean: {
+            release: ['release/'],
+            fontcustom: ['source/fontcustom/']
+        },
 
         // Optimize RequireJS scripts.
         requirejs: {
@@ -201,9 +204,11 @@ module.exports = function(grunt) {
 
     // Define grunt tasks
     // =======================================
-    grunt.registerTask('default', ['sass', 'jade', 'connect', 'watch']);
-    grunt.registerTask('fontcustom', ['shell:fontcustom', 'copy:fontcustom', 'replace:fontcustom']);
-    grunt.registerTask('release', ['jshint', 'csslint', 'clean', 'replace:release', 'copy:release', 'cssmin', 'imagemin', 'requirejs']);
+    //grunt.registerTask('default', ['sass', 'jade', 'connect', 'watch']);
+    grunt.registerTask('default', ['sass', 'jade', 'watch']);
+    grunt.registerTask('fontcustom', ['clean:fontcustom', 'shell:fontcustom', 'copy:fontcustom', 'replace:fontcustom']);
+    //grunt.registerTask('release', ['jshint', 'csslint', 'clean', 'replace:release', 'copy:release', 'cssmin', 'imagemin', 'requirejs']);
+    grunt.registerTask('release', ['jshint', 'clean:release', 'replace:release', 'copy:release', 'cssmin', 'imagemin', 'requirejs']);
 
     // Load grunt packages
     // =======================================
