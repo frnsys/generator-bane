@@ -21,7 +21,7 @@ require([
 	// through the Backbone router.
 	// If the link has a `data-bypass` attr,
 	// this special behavior will be ignored.
-	$(document).on('click', 'a[href]:not([data-bypass]):not(target="_blank")', function(evt) {
+	$(document).on('click', 'a[href]:not([data-bypass]):not([target="_blank"])', function(evt) {
 		var href = {
 			prop: $(this).prop('href'),
 			attr: $(this).attr('href')
